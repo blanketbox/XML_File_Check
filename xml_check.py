@@ -45,11 +45,11 @@ for file in xml_files:
                 tag_kind = re.findall(open_multi_tag, line)[0][1]
                 tag_status[tag_kind] = None
 
-            elif re.findall(open_sgl_tag, line):
+            if re.findall(open_sgl_tag, line):
                 tag_kind = re.findall(open_sgl_tag, line)[0][1]
                 tag_status[tag_kind] = None
 
-            elif re.findall(close_tag, line):
+            if re.findall(close_tag, line):
                 tag_kind = re.findall(close_tag, line)[0][1]
                 tag_status[tag_kind] = None
 
@@ -68,7 +68,7 @@ for file in xml_files:
                 else:
                     tag_status[tag_kind] = "open"
 
-            elif re.findall(open_multi_tag, line):
+            if re.findall(open_multi_tag, line):
 
                 tag_kind = re.findall(open_multi_tag, line)[0][1]
                 if tag_status[tag_kind] == "open":
@@ -77,7 +77,7 @@ for file in xml_files:
                 else:
                     tag_status[tag_kind] = "open"
 
-            elif re.findall(close_tag, line):
+            if re.findall(close_tag, line):
 
                 tag_kind = re.findall(close_tag, line)[0][1]
                 if tag_status[tag_kind] == "closed" or tag_status[tag_kind] == None:
